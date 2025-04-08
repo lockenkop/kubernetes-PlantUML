@@ -51,6 +51,15 @@ skinparam rectangle<<service>> {
     RoundCorner 25
 }
 
+skinparam rectangle<<deployment>> {
+    StereotypeFontColor KUBERNETES_FONT_COLOR
+    FontColor KUBERNETES_FONT_COLOR
+    BorderStyle line
+    BorderColor KUBERNETES_NODE_COLOR
+    BackgroundColor KUBERNETES_BACKGROUND_COLOR
+    RoundCorner 25
+}
+
 ' Boundaries
 ' ##################################
 
@@ -76,9 +85,14 @@ skinparam rectangle<<service>> {
 !define Service(e_alias, e_label) rectangle "==e_label" <<service>> as e_alias
 !define Service(e_alias, e_label, e_type) rectangle "==e_label\n<size:TECHN_FONT_SIZE>[e_type]</size>" <<service>> as e_alias
 
+' deployment
+!define Deployment(e_alias, e_label) rectangle "==e_label" <<deployment>> as e_alias
+!define Deployment(e_alias, e_label, e_type) rectangle "==e_label\n<size:TECHN_FONT_SIZE>[e_type]</size>" <<deployment>> as e_alias
+
 ' Kubernetes Elements
 !define Cluster_Boundary(e_alias, e_label) Cluster(e_alias, e_label)
 !define Namespace_Boundary(e_alias, e_label) Namespace(e_alias, e_label, "Namespace")
 !define Node_Boundary(e_alias, e_label) Node(e_alias, e_label)
 !define Pod_Boundary(e_alias, e_label) Pod(e_alias, e_label, "Pod")
 !define Service_Boundary(e_alias, e_label) Service(e_alias, e_label)
+!define Deployment_Boundary(e_alias, e_label) Deployment(e_alias, e_label, "Deployment")
