@@ -9,6 +9,8 @@
 !define KUBERNETES_NODE_COLOR #096B24
 !define KUBERNETES_POD_COLOR #09E508
 !define KUBERNETES_SERVICE_COLOR #FCC133
+!define KUBERNETES_DEPLOYMENT_COLOR #33fce4
+!define KUBERNETES_ARBITRARY_COLOR #9c9c9c
 !define KUBERNETES_FONT_COLOR #000000
 !define KUBERNETES_BACKGROUND_COLOR #FFFFFF
 
@@ -55,7 +57,16 @@ skinparam rectangle<<deployment>> {
     StereotypeFontColor KUBERNETES_FONT_COLOR
     FontColor KUBERNETES_FONT_COLOR
     BorderStyle line
-    BorderColor KUBERNETES_NODE_COLOR
+    BorderColor KUBERNETES_DEPLOYMENT_COLOR
+    BackgroundColor KUBERNETES_BACKGROUND_COLOR
+    RoundCorner 25
+}
+
+skinparam rectangle<<arbitrary>> {
+    StereotypeFontColor KUBERNETES_FONT_COLOR
+    FontColor KUBERNETES_FONT_COLOR
+    BorderStyle line
+    BorderColor KUBERNETES_ARBITRARY_COLOR
     BackgroundColor KUBERNETES_BACKGROUND_COLOR
     RoundCorner 25
 }
@@ -88,6 +99,11 @@ skinparam rectangle<<deployment>> {
 ' deployment
 !define Deployment(e_alias, e_label) rectangle "==e_label" <<deployment>> as e_alias
 !define Deployment(e_alias, e_label, e_type) rectangle "==e_label\n<size:TECHN_FONT_SIZE>[e_type]</size>" <<deployment>> as e_alias
+
+' arbitrary
+!define Arbitrary(e_alias, e_label) rectangle "==e_label" <<deployment>> as e_alias
+!define Arbitrary(e_alias, e_label, e_type) rectangle "==e_label\n<size:TECHN_FONT_SIZE>[e_type]</size>" <<arbitrary>> as e_alias
+
 
 ' Kubernetes Elements
 !define Cluster_Boundary(e_alias, e_label) Cluster(e_alias, e_label)
