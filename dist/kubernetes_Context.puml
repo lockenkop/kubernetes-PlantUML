@@ -101,7 +101,7 @@ skinparam rectangle<<arbitrary>> {
 !define Deployment(e_alias, e_label, e_type) rectangle "==e_label\n<size:TECHN_FONT_SIZE>[e_type]</size>" <<deployment>> as e_alias
 
 ' arbitrary
-!define Arbitrary(e_alias, e_label) rectangle "==e_label" <<deployment>> as e_alias
+!define Arbitrary(e_alias, e_label) rectangle "==e_label" <<arbitrary>> as e_alias
 !define Arbitrary(e_alias, e_label, e_type) rectangle "==e_label\n<size:TECHN_FONT_SIZE>[e_type]</size>" <<arbitrary>> as e_alias
 
 
